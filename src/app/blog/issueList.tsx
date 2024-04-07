@@ -8,19 +8,20 @@ const octokit = new Octokit({
   
   export async function fetchIssues(page: number, perPage: number = 10) {
     try {
-      const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+      const response = await octokit.request('GET https://api.github.com/repos/IsFolk/Dcard-Frontend-HW/issues', {
         owner: 'IsFolk',
         repo: 'Dcard-Frontend-HW',
         page: page,
         per_page: perPage,
         headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
+          'X-GitHub-Api-Version': '2022-11-28',
+          'Cache-Control': 'no-cache',
         },
-        random: Math.random()
       });
+      
 
         const data = response.data;
-
+        console.log(data[0]);
 
         if (data && data.length > 0) {
             const extractedIssues = await Promise.all(data.map(async (issue: any) => {

@@ -80,6 +80,7 @@ const UpdateBlog = ({ issue, updateOpen, onClose }: UpdateButtonProps) => {
             setIsPopupOpen(false);
             setTitle(title);
             setBody(body);
+            window.location.reload(); // Add this line to refresh the page
         } catch (error) {
             setIsLoading(false);
             console.error('Error updating issue:', error);
