@@ -4,7 +4,7 @@ import { LoadMore } from "./load-more";
 import {MyNavBar} from "./blog-components/navbar";
 
 const BlogPage = async () => {
-  const issuesData = await fetchIssues(1);
+  const issuesData = await fetchIssues(1); //先抓一些資料讓使用者有東西看 之後再10筆10筆的加
   const issues = issuesData || null;
 
   

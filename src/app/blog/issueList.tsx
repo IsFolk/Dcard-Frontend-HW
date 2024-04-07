@@ -1,5 +1,4 @@
 "use server"
-import { avatar } from "@nextui-org/theme";
 import { Octokit } from "@octokit/core";
   
 

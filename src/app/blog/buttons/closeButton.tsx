@@ -1,4 +1,6 @@
 // closeIssue.ts
+
+// function for closing issue
 import { Octokit } from "@octokit/core";
 import { Issue } from "../types";
 

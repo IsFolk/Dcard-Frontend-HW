@@ -1,3 +1,5 @@
+// function for opening issue
+
 import { Octokit } from "@octokit/core";
 import { useEffect, useState } from "react";
 import {Textarea, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link} from "@nextui-org/react";

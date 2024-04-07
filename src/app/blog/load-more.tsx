@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer';
 import { CustomSpinner } from "./spinner";
 import { fetchIssues } from "./issueList";
 import IssuesUnit from "./issues_unit";
-import {Spinner} from "@nextui-org/react";
 import { Issue } from "./types";
 
 

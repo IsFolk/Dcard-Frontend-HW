@@ -96,7 +96,7 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
                                     <Chip size="md">Comments</Chip>
 
                                     {selectedIssue?.comments.map((comment, index) => (
-                                        <Accordion selectionMode="multiple">
+                                        <Accordion key={index} selectionMode="multiple">
                                             <AccordionItem
                                                 key={index}
                                                 aria-label={comment.user}

@@ -1,5 +1,5 @@
 // types.ts
-
+// 會一直固定用到的東西
 export interface Comments {
   user: string;
   content: string;

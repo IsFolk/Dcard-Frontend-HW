@@ -2,13 +2,11 @@
 import ButtonList from "./buttons/listButtons";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
-import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { Issue } from './types';
 import { Chip } from "@nextui-org/react";
-import { useSession, getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import { use, useEffect, useState } from "react";
-import { fetchIssues } from "./issueList";
-
 
 
 interface IssuesProps {
