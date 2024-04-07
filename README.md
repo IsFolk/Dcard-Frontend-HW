@@ -1,4 +1,4 @@
-# Project Name
+# Dcard-Frontend HW 2024 Yu-Ting Tseng
 
 This project is a TypeScript/Next.js web application with a blog feature and various components.
 
