@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { Providers } from "./providers";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,8 +22,12 @@ type RootLayoutProps = {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className='dark'>
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 };
