@@ -2,7 +2,6 @@ import { Octokit } from "@octokit/core";
 import { useEffect, useState } from "react";
 import { Textarea } from "@nextui-org/react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import remarkGfm from 'remark-gfm'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import { Accordion, AccordionItem, Avatar } from "@nextui-org/react";
 import Markdown from 'react-markdown';
@@ -86,11 +85,11 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
             {isPopupOpen &&
                 <Modal isOpen={isPopupOpen} onOpenChange={handleClose}>
                     <ModalContent>
-                        {(handleClose) => (
+                        {() => (
                             <>
                                 <ModalHeader className="flex flex-col gap-1">{selectedIssue?.title}</ModalHeader>
                                 <ModalBody>
-                                    <Markdown remarkPlugins={[remarkGfm]}>
+                                    <Markdown>
                                         {selectedIssue?.body}
                                     </Markdown>
                                     <Chip size="md">Comments</Chip>
@@ -114,7 +113,7 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
 
 
 
-                                                <Markdown remarkPlugins={[remarkGfm]}>
+                                                <Markdown>
                                                     {comment.content}
                                                 </Markdown>
 

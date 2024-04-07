@@ -69,7 +69,7 @@ const CreateButton: React.FC<CreateButtonProps> = ({ owner, repo }) => {
                             onClose={handleClose}
                             >
                             <ModalContent>
-                            {(onClose) => (
+                            {() => (
                                 <>
                                 <ModalHeader className="flex flex-col gap-1"></ModalHeader>
                                 <ModalBody>

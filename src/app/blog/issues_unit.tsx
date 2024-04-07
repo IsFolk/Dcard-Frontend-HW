@@ -1,7 +1,6 @@
 "use client";
 import ButtonList from "./buttons/listButtons";
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { Issue } from './types';
 import { Chip } from "@nextui-org/react";
@@ -65,7 +64,7 @@ export function IssuesUnit({ issues }: IssuesProps) {
                             </CardHeader>
                             <Divider />
                             <CardBody style={{ whiteSpace: 'pre-line', wordWrap: 'break-word' }}>
-                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                <ReactMarkdown>
                                     {issue.body && (issue.body.length > 100 ? issue.body.slice(0, 100) + '...' : issue.body)}
                                 </ReactMarkdown>
                             </CardBody>                        
