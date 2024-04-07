@@ -20,23 +20,23 @@ https://dcard-frontend-hw.vercel.app/
 - `src/app`: Next.js root directory for pages and layouts
 - `src/api`: API routes and authentication logic (I tried too be clean but maybe not clean enough, some api calls still outside)
 - `src/blog`: Blog-related components and pages
-    -- page.tsx: Default page, loading all blog components
-    -- issueList.tsx: For issues fetching (GET)
-    -- issues_unit: For rendering issues
-    -- spinner.tsx: Spinner when loading more issues
-    -- types.tsx: Interfaces that are commonly used
+    - page.tsx: Default page, loading all blog components
+    - issueList.tsx: For issues fetching (GET)
+    - issues_unit: For rendering issues
+    - spinner.tsx: Spinner when loading more issues
+    - types.tsx: Interfaces that are commonly used
 - `src/api-components`: Reusable API components (e.g., SignIn, SignOut)
-    -- SignInButton.tsx: Sign-in button for github OAuth
-    -- SignOutButton.tsx: Sign-out button for githup OAuth (I didn't use it later becuz I used NEXTUI's component)
+    - SignInButton.tsx: Sign-in button for github OAuth
+    - SignOutButton.tsx: Sign-out button for githup OAuth (I didn't use it later becuz I used NEXTUI's component)
 - `src/blog/blog-components`: Reusable blog components (navbar)\
-    -- navbar.tsx : Navbar on the top side, including sign-in button & sign-out button
+    - navbar.tsx : Navbar on the top side, including sign-in button & sign-out button
 - `src/blog/buttons`: Reusable blog components (they are called buttons but most of them are function-based)
     For Repo Owner:
-    -- closeButton.tsx: Setting the issue set to close (after setting we should not see the issue again)
-    -- createbutton.tsx: Creating new issue, you can type title and body, there are title and length controls for it
-    -- updateButton.tsx: Updating the issue, you can type title and body, there are title and length controls for it
+    - closeButton.tsx: Setting the issue set to close (after setting we should not see the issue again)
+    - createbutton.tsx: Creating new issue, you can type title and body, there are title and length controls for it
+    - updateButton.tsx: Updating the issue, you can type title and body, there are title and length controls for it
     For Public User & Repo Owner:
-    -- viewButton.tsx: to view the issue
+    - viewButton.tsx: to view the issue
 
 ### Configuration
 
