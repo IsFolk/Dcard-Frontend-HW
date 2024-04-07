@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 import UpdateBlog from './updateButton';
 import IssuePopup from "./viewButton";
+import { closeIssue } from './closeButton';
+
 import { Issue, Comments } from "../types";
 
 
-  interface IssuesProps {
-    issues: Issue[] | null;
-  }
+
 
   interface ButtonListProps {
     issue: Issue;
+    isAuthor: boolean;
   }
 
-  const ButtonList = ({ issue }: ButtonListProps) => {
+  const ButtonList = ({ issue, isAuthor }: ButtonListProps) => {
     const [isUpdateOpen, setUpdateOpen] = useState(false);
     const [isIssueClicked, setIsIssueClicked] = useState(false);
 
@@ -33,19 +34,23 @@ import { Issue, Comments } from "../types";
         setIsIssueClicked(false);
     }
 
+    const handleIssueClose = async () => {
+        await closeIssue(issue);
+        window.location.reload();
+    }
     return (
         <div>
         <Dropdown>
         <DropdownTrigger>
             <Button variant="bordered">Actions</Button>
         </DropdownTrigger>
-        <DropdownMenu aria-label="Action event example">
-            <DropdownItem onClick={handleIssueClick}>View Blog</DropdownItem>
-            <DropdownItem onClick={handleUpdateOpen}>Edit Blog</DropdownItem>
-            <DropdownItem key="delete" className="text-danger" color="danger">
-                Delete Blog
-            </DropdownItem>
-        </DropdownMenu>
+        <DropdownMenu aria-label="Action event example" disabledKeys={isAuthor? [] : ["edit", "delete"]}>            
+        <DropdownItem key="view" onClick={handleIssueClick}>View Blog</DropdownItem>
+                <DropdownItem key="edit" onClick={handleUpdateOpen}>Edit Blog</DropdownItem>
+                <DropdownItem key="delete" onClick={handleIssueClose} className="text-danger" color="danger">
+                    Delete Blog
+                </DropdownItem>
+            </DropdownMenu>
         </Dropdown>
         {isUpdateOpen ? <UpdateBlog issue={issue} updateOpen={isUpdateOpen} onClose={handleUpdateClose} /> : null}
         {isIssueClicked? <IssuePopup issue={issue} isIssueClicked={isIssueClicked} onClose={handleClosePopup} /> : null}

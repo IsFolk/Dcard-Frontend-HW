@@ -8,13 +8,13 @@ import { Button } from '@nextui-org/react';
 const SignInButton = () => {
   return (
     <div>
-    <button
+    <Button
       className="bg-slate-600 px-4 py-2 text-white"
-      onClick={() => signIn("github", { callbackUrl: "/profile" })}
+      onClick={() => signIn("github", { callbackUrl: "/blog" })}
       type="button"
     >
       Sign In With GitHub
-    </button>
+    </Button>
     </div>
   );
 };

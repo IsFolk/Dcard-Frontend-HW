@@ -1,5 +1,6 @@
 import { Octokit } from "@octokit/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {Textarea, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link} from "@nextui-org/react";
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN
@@ -15,7 +16,24 @@ const CreateButton: React.FC<CreateButtonProps> = ({ owner, repo }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const [isInvalid, setIsInvalid] = useState(false);
+    const [isTitleInvalid, setIsTitleInvalid] = useState(false);
 
+    const handleClose = () => {
+        setIsPopupOpen(false);
+    };
+
+
+    useEffect(() => {
+        setIsInvalid(body.length < 30);
+    }, [body]);
+
+    useEffect(() => {
+        console.log(title);
+        setIsTitleInvalid(title.length === 0);
+    }, [title]);
+
+    
     const handleCreateIssue = async () => {
         try {
             setIsLoading(true);
@@ -31,8 +49,7 @@ const CreateButton: React.FC<CreateButtonProps> = ({ owner, repo }) => {
             setIsLoading(false);
             alert('Issue created successfully!');
             setIsPopupOpen(false);
-            setTitle('');
-            setBody('');
+            window.location.reload(); // Add this line to refresh the page
         } catch (error) {
             setIsLoading(false);
             console.error('Error creating issue:', error);
@@ -42,40 +59,54 @@ const CreateButton: React.FC<CreateButtonProps> = ({ owner, repo }) => {
 
     return (
         <div>
-            <button style={{ background: "grey", border: "1px solid black", borderRadius: '5px', padding: '5px 10px', margin: '5px' }} onClick={() => setIsPopupOpen(true)}>新增Blog</button>
-            {isPopupOpen && (
-                <div className="popup" style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-                    <div className="popup-content">
-                        <input
-                            type="text"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Enter New title"
-                        />
-                        <br />
-                        <textarea
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                            placeholder="Enter New body"
-                        />
-                        <button onClick={handleCreateIssue} disabled={isLoading}>
-                            {isLoading ? 'Creating...' : 'Create Issue'}
-                        </button>
-                        <button onClick={() => setIsPopupOpen(false)}>Close</button>
-
-
-
-                        {/* <form onSubmit={handleCreateIssue}>
-                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" />
-                            <br/>
-                            <textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Enter body"></textarea>
-                            <br/>
-                            <button type="submit" style={{ background: "grey", border: "1px solid black", borderRadius: '5px', padding: '5px 10px', margin: '5px' }}>Submit</button>
-                            <button onClick={() => setIsPopupOpen(false)} style={{ background: "grey", border: "1px solid black", borderRadius: '5px', padding: '5px 10px', margin: '5px' }}>Cancel</button>
-                        </form> */}
-                    </div>
-                </div>
-            )}
+            <Button onClick={() => setIsPopupOpen(true)}> New Blog</Button>
+                {isPopupOpen && (
+                            <Modal 
+                            placement="top-center"
+                            isOpen={isPopupOpen}
+                            onClose={handleClose}
+                            >
+                            <ModalContent>
+                            {(onClose) => (
+                                <>
+                                <ModalHeader className="flex flex-col gap-1"></ModalHeader>
+                                <ModalBody>
+                                    <Input
+                                    isInvalid={isTitleInvalid}
+                                    autoFocus
+                                    label="Title"
+                                    placeholder="Enter your Title"
+                                    defaultValue= {title}
+                                    errorMessage= {isTitleInvalid? "Cannot be None." : ""}
+                                    variant="bordered"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                    <Textarea
+                                    isInvalid={isInvalid}
+                                    autoFocus
+                                    label="Body"
+                                    placeholder="Enter your Body"
+                                    type="text"
+                                    variant="bordered"
+                                    defaultValue= {body}
+                                    errorMessage= {isInvalid? "Should be at least 30 characters long." : ""}
+                                    onChange={(e) => setBody(e.target.value)}
+                                    />
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="danger" variant="flat" onPress={handleClose}>
+                                    Close
+                                    </Button>
+                                    <Button color="primary" onPress={handleCreateIssue} isLoading = {isLoading}  isDisabled= {isLoading || isInvalid || isTitleInvalid}>
+                                    {isLoading ? 'Creating...' : 'Create Issue'}
+                                    </Button>
+                                </ModalFooter>
+                                </>
+                            )}
+                            </ModalContent>
+                            </Modal>
+                            )}
+            
         </div>
     );
 };

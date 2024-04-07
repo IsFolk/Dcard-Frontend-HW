@@ -135,39 +135,6 @@ const UpdateBlog = ({ issue, updateOpen, onClose }: UpdateButtonProps) => {
                             </ModalContent>
                             </Modal>
 
-                // <div className="popup" style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-                //     <div className="popup-content">
-                //     <Input
-                //             variant="flat"
-                //             label="Title"
-                //             labelPlacement="outside"
-                //             placeholder="Enter your Title"
-                //             defaultValue= {title}
-                //             className="max-w-xs"
-                //             onChange={(e) => setTitle(e.target.value)}
-                //         />
-
-
-                //         <Textarea
-                //             isInvalid={isInvalid}
-                //             variant="flat"
-                //             label="Body"
-                //             labelPlacement="outside"
-                //             placeholder="Enter your body"
-                //             defaultValue= {body}
-                //             errorMessage= {isInvalid? "Should be at least 30 characters long." : ""}
-                //             className="max-w-xs"
-                //             onChange={(e) => setBody(e.target.value)}
-                //         />
-                //         <div className="button-container">
-                //             <Button size="sm" onClick={handleUpdateIssue} color="primary" isLoading = {isLoading}  isDisabled= {isLoading || isInvalid}>
-                //                 {isLoading ? 'Updating...' : 'Update Issue'}
-                //             </Button>
-
-                //             <Button size="sm" onClick={handleClose}>Close</Button>
-                //         </div>
-                //     </div>
-                // </div>
             )}
         </div>
     );

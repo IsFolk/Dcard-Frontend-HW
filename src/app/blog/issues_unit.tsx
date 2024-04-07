@@ -2,11 +2,12 @@
 import ButtonList from "./buttons/listButtons";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
+import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { Issue } from './types';
 import { Chip } from "@nextui-org/react";
 import { useSession, getSession } from "next-auth/react";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
+import { fetchIssues } from "./issueList";
 
 
 
@@ -15,7 +16,33 @@ interface IssuesProps {
 }
 
 export function IssuesUnit({ issues }: IssuesProps) {
+    const [currentUserName, setCurrentUserName] = useState<String | null>(null);
+    const [isAuthor, setIsAuthor] = useState<Boolean>(false);    
     
+    useEffect(() => {
+        getSessionInfo()
+    }, [issues]);
+
+    useEffect(() => {
+        getSessionInfo()
+    }, []);
+
+
+    async function getSessionInfo() {
+        // 獲取當前登入用戶 ID
+        const session = await getSession();
+    
+        if (session) {
+            if(session?.user?.name !== undefined){
+                setCurrentUserName(session.user.name);
+            } else {
+                setCurrentUserName(null);
+            }
+        }
+        // console.log(currentUserName);
+    }
+
+
     return (
         <div>
             {issues &&
@@ -36,14 +63,15 @@ export function IssuesUnit({ issues }: IssuesProps) {
                                         <p className="text-small text-default-500">{issue.owner.login}</p>
                                     </div>
                                 </div>
-                                <ButtonList issue={issue} />
+                                <ButtonList issue={issue} isAuthor={issue.owner.login === currentUserName}/>
                             </CardHeader>
                             <Divider />
                             <CardBody style={{ whiteSpace: 'pre-line', wordWrap: 'break-word' }}>
                                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                     {issue.body && (issue.body.length > 100 ? issue.body.slice(0, 100) + '...' : issue.body)}
                                 </ReactMarkdown>
-                            </CardBody>                        <Divider />
+                            </CardBody>                        
+                            <Divider />
                             <CardFooter>
                                 {issue.labels.map((label, index) => (
                                     <Chip key={index} color="primary" variant="shadow">{label.name}</Chip>
@@ -51,13 +79,6 @@ export function IssuesUnit({ issues }: IssuesProps) {
                             </CardFooter>
                         </Card>
                     </div>
-
-
-
-
-
-
-
 
                 ))}
 

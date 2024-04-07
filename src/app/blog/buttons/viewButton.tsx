@@ -7,7 +7,6 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDi
 import { Accordion, AccordionItem, Avatar } from "@nextui-org/react";
 import Markdown from 'react-markdown';
 import {Chip} from "@nextui-org/react";
-
 import {Issue, Comments} from "../types";
 
 

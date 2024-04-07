@@ -7,7 +7,7 @@ const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN
   });
   
-  export async function fetchIssues(page: number, perPage: number = 3) {
+  export async function fetchIssues(page: number, perPage: number = 10) {
     try {
       const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
         owner: 'IsFolk',
@@ -25,8 +25,6 @@ const octokit = new Octokit({
 
         if (data && data.length > 0) {
             const extractedIssues = await Promise.all(data.map(async (issue: any) => {
-            //   const labels = data.labels;
-                // console.log(issue.labels);
                 const labels = issue.labels.map((label: any) => {
                     return {
                       name: label.name,
