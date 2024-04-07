@@ -2,6 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+可以從這邊找到我的Online Project:
+
+https://dcard-frontend-hw.vercel.app/
+
+
+
+目前Bug但有點無解:
+1. 在get issues的時候就算重新送request也會得到一樣的結果，所以可能沒辦法直接看到頁面渲染QQ (有時候要等一陣子或是通靈的時候才會突然變，但我在POSTMAN測的時候GET是會不一樣的)，
+試過
+- 送random參數起初有效果但不知道為什麼又沒效了　（感覺跟Github API應該無關但是）
+- headers裡面要求不要Cache，但我試著去用Chrome的無痕模式
+
+
+
+
 First, run the development server:
 
 ```bash

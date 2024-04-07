@@ -21,7 +21,6 @@ const octokit = new Octokit({
       
 
         const data = response.data;
-        console.log(data[0]);
 
         if (data && data.length > 0) {
             const extractedIssues = await Promise.all(data.map(async (issue: any) => {
