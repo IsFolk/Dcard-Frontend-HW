@@ -2,7 +2,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar } from "@nextui-org/react";
-import { getSession, useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import { Session } from "next-auth";
 import SignInButton from "@/app/blog/api-components/SignInButton";
 import { signOut } from "next-auth/react";
@@ -27,7 +27,6 @@ export function MyNavBar() {
                 setCurrentUser(null);
             }
         }
-        console.log(currentUser);
     }
 
     <button

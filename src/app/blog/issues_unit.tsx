@@ -14,7 +14,6 @@ interface IssuesProps {
 
 export function IssuesUnit({ issues }: IssuesProps) {
     const [currentUserName, setCurrentUserName] = useState<String | null>(null);
-    const [isAuthor, setIsAuthor] = useState<Boolean>(false);    
     
     useEffect(() => {
         getSessionInfo()
@@ -26,7 +25,7 @@ export function IssuesUnit({ issues }: IssuesProps) {
 
 
     async function getSessionInfo() {
-        // 獲取當前登入用戶 ID
+        // check Session
         const session = await getSession();
     
         if (session) {
@@ -36,7 +35,6 @@ export function IssuesUnit({ issues }: IssuesProps) {
                 setCurrentUserName(null);
             }
         }
-        // console.log(currentUserName);
     }
 
 

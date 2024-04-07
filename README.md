@@ -1,51 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Name
 
-## Getting Started
+This project is a TypeScript/Next.js web application with a blog feature and various components.
 
-可以從這邊找到我的Online Project:
+You can find my online demo here:
 
 https://dcard-frontend-hw.vercel.app/
 
 
+## Getting Started
 
-目前Bug但有點無解:
+1. Clone the repository
+2. Install dependencies: `npm install` or `yarn install`
+3. Start the development server: `npm run dev` or `yarn dev`
+4. Open `http://localhost:3000` in your browser
+
+## Project Structure
+
+
+- `src/app`: Next.js root directory for pages and layouts
+- `src/api`: API routes and authentication logic (I tried too be clean but maybe not clean enough, some api calls still outside)
+- `src/blog`: Blog-related components and pages
+    -- page.tsx: Default page, loading all blog components
+    -- issueList.tsx: For issues fetching (GET)
+    -- issues_unit: For rendering issues
+    -- spinner.tsx: Spinner when loading more issues
+    -- types.tsx: Interfaces that are commonly used
+- `src/api-components`: Reusable API components (e.g., SignIn, SignOut)
+    -- SignInButton.tsx: Sign-in button for github OAuth
+    -- SignOutButton.tsx: Sign-out button for githup OAuth (I didn't use it later becuz I used NEXTUI's component)
+- `src/blog/blog-components`: Reusable blog components (navbar)\
+    -- navbar.tsx : Navbar on the top side, including sign-in button & sign-out button
+- `src/blog/buttons`: Reusable blog components (they are called buttons but most of them are function-based)
+    For Repo Owner:
+    -- closeButton.tsx: Setting the issue set to close (after setting we should not see the issue again)
+    -- createbutton.tsx: Creating new issue, you can type title and body, there are title and length controls for it
+    -- updateButton.tsx: Updating the issue, you can type title and body, there are title and length controls for it
+    For Public User & Repo Owner:
+    -- viewButton.tsx: to view the issue
+
+### Configuration
+
+- `next.config.js`: Next.js configuration file
+- `.env.local`: Environment variables (e.g., API keys)
+
+### Other Files
+
+- `Dockerfile`: Docker configuration for containerizing the application
+- `package.json`: Project dependencies and scripts
+
+## Deployment
+
+To deploy the application, you can use a hosting service like Vercel or Netlify, or set up a server and build the project with `npm run build` or `yarn build`.
+
+
+## Other things (Bugs or Murmurs(?))
+
+### 目前Bug但有點無解:
 1. 在get issues的時候就算重新送request也會得到一樣的結果，所以可能沒辦法直接看到頁面渲染QQ (有時候要等一陣子或是通靈的時候才會突然變，但我在POSTMAN測的時候GET是會不一樣的)，
 試過
 - 送random參數起初有效果但不知道為什麼又沒效了　（感覺跟Github API應該無關但是）
-- headers裡面要求不要Cache，但我試著去用Chrome的無痕模式
+- headers裡面要求不要Cache，但我試著去用Chrome的無痕模式還是一樣的結果，所以跟Cache的關係應該也不大
+- 有發現如果把一次fetch的issue數減少的話好像可以解決這個問題 (但作業要求是10所以我還是設定10)
+
+**但是可以確定repo內容都是有更新的**
+
+### 感覺可以再修正的地方
+1. 為了作業方便把repo都寫死了，所以目前編輯和刪除也只有repo的owner可以而已(目前應該是只有我的Github帳號可以做這些事)，感覺可以多一些設置的選項
+2. 取名不統一...要改進QQ
 
 
-
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+最後為了Demo還會再錄一些影片證明是真的有做出來(?)

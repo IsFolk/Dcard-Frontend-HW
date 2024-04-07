@@ -4,7 +4,7 @@ import UpdateBlog from './updateButton';
 import IssuePopup from "./viewButton";
 import { closeIssue } from './closeButton';
 
-import { Issue, Comments } from "../types";
+import { Issue } from "../types";
 
 
 

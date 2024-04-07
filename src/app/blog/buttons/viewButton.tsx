@@ -1,7 +1,5 @@
 import { Octokit } from "@octokit/core";
 import { useEffect, useState } from "react";
-import { Textarea } from "@nextui-org/react";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import { Accordion, AccordionItem, Avatar } from "@nextui-org/react";
 import Markdown from 'react-markdown';
