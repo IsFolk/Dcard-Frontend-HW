@@ -22,7 +22,7 @@ https://dcard-frontend-hw.vercel.app/
 - `src/blog`: Blog-related components and pages
     - page.tsx: Default page, loading all blog components
     - issueList.tsx: For issues fetching (GET)
-    - issues_unit: For rendering issues
+    - issues_unit.tsx: For rendering issues
     - spinner.tsx: Spinner when loading more issues
     - types.tsx: Interfaces that are commonly used
 - `src/api-components`: Reusable API components (e.g., SignIn, SignOut)
