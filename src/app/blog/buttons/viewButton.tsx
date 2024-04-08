@@ -41,7 +41,6 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
 
     const handleIssueClick = async (issue: Issue) => {
         setSelectedIssue(issue);
-        console.log(process.env.NEXT_PUBLIC_GITHUB_OWNER)
         try {
             
             const response = await octokit.request(`GET /repos/{owner}/{repo}/issues/{issue_number}/comments`, {
