@@ -7,6 +7,14 @@ You can find my online demo here:
 
 https://dcard-frontend-hw.vercel.app/
 
+**Demo video**
+https://youtu.be/etgUt-WCBwg
+
+
+The website demo starts from 5:47
+[![Dcard Blog](https://hackmd.io/_uploads/SkxG3Z-xA.png)](https://youtu.be/etgUt-WCBwg)
+
+
 
 
 ## Before started
@@ -97,6 +105,3 @@ To deploy the application, you can use a hosting service like Vercel or Netlify,
 ### 感覺可以再修正的地方
 1. ~~為了作業方便把repo都寫死了，所以目前編輯和刪除也只有repo的owner可以而已(目前應該是只有我的Github帳號可以做這些事)，感覺可以多一些設置的選項~~ -> 已改成可用環境變數設定
 2. 取名不統一...要改進QQ
-
-
-最後為了Demo還會再錄一些影片證明是真的有做出來(?)
