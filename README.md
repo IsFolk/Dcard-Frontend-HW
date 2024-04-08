@@ -11,6 +11,15 @@ https://dcard-frontend-hw.vercel.app/
 
 1. Clone the repository
 2. Install dependencies: `npm install` or `yarn install`
+3. Create your own .env.local file
+```.env.local
+NEXTAUTH_SECRET= YOUR_NEXT_AUTH_SECRET
+GITHUB_SECRET = YOUR_GITHUB_SECRET
+GITHUB_ID= YOUR_GITHUB_ID
+GITHUB_TOKEN= YOUR_GITHUB_TOKEN
+NEXTAUTH_URL="dcard-frontend-8qd0indb3-sarahs-projects-65ce1ac5.vercel.app"
+```
+
 3. Start the development server: `npm run dev` or `yarn dev`
 4. Open `http://localhost:3000` in your browser
 
@@ -22,7 +31,7 @@ https://dcard-frontend-hw.vercel.app/
 - `src/blog`: Blog-related components and pages
     - page.tsx: Default page, loading all blog components
     - issueList.tsx: For issues fetching (GET)
-    - issues_unit.tsx: For rendering issues
+    - issues_unit: For rendering issues
     - spinner.tsx: Spinner when loading more issues
     - types.tsx: Interfaces that are commonly used
 - `src/api-components`: Reusable API components (e.g., SignIn, SignOut)
