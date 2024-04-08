@@ -6,6 +6,8 @@ const nextConfig = {
       },
     env: {
         GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+        NEXT_PUBLIC_GITHUB_OWNER: process.env.NEXT_PUBLIC_GITHUB_OWNER,
+        NEXT_PUBLIC_GITHUB_REPO: process.env.NEXT_PUBLIC_GITHUB_REPO,
         AUTH0_BASE_URL: process.env.VERCEL
             ? `https://${process.env.VERCEL_URL}`
             : process.env.AUTH0_BASE_URL,
