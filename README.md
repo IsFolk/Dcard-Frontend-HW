@@ -11,7 +11,6 @@ https://dcard-frontend-hw.vercel.app/
 https://youtu.be/etgUt-WCBwg
 
 
-The website demo starts from 5:47
 [![Dcard Blog](https://i.imgur.com/A1JbdID.png)](https://youtu.be/etgUt-WCBwg)
 
 
