@@ -11,8 +11,8 @@ const octokit = new Octokit({
 export async function closeIssue(issue: Issue) {
     try {
         await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
-            owner: process.env.GITHUB_OWNER || '',
-            repo: process.env.GITHUB_REPO || '',
+            owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || '',
+            repo: process.env.NEXT_PUBLIC_GITHUB_REPO || '',
             issue_number: issue.issue_number,
             state: 'closed',
             headers: {

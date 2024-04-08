@@ -42,14 +42,16 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
     const handleIssueClick = async (issue: Issue) => {
         setSelectedIssue(issue);
         try {
+            
             const response = await octokit.request(`GET /repos/{owner}/{repo}/issues/{issue_number}/comments`, {
-                owner: process.env.GITHUB_OWNER || '',
-                repo: process.env.GITHUB_REPO || '',
+                owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || '',
+                repo: process.env.NEXT_PUBLIC_GITHUB_REPO || '',
                 issue_number: issue.issue_number,
                 headers: {
                     'X-GitHub-Api-Version': '2022-11-28'
                 }
             });
+
             const issueData = response.data;
             const comments: Comments[] = issueData.map((comment: any) => ({
                 user: comment.user.login,
@@ -134,59 +136,6 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
                         )}
                     </ModalContent>
                 </Modal>
-
-
-
-
-
-
-
-
-
-                // (
-                //     <div className="popup" style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-                //         <div className="popup-content">
-                //         <Textarea
-                //                 variant="flat"
-                //                 label="Title"
-                //                 labelPlacement="outside"
-                //                 placeholder="Enter your Title"
-                //                 defaultValue= {selectedIssue?.title}
-                //                 className="max-w-xs"
-                //             />
-
-
-                //             <Textarea
-                //                 variant="flat"
-                //                 label="Body"
-                //                 labelPlacement="outside"
-                //                 placeholder="Enter your body"
-                //                 defaultValue= {selectedIssue?.body}
-                //                 className="max-w-xs"
-                //             />
-
-                //             <h3>Comments:</h3>
-                //                     <ul>
-                //                     {selectedIssue?.comments.map((comment, index) => (
-                //                         <li key={index}>
-                //                         <strong>{comment.user}: </strong>
-                //                         <Markdown remarkPlugins={[remarkGfm]}>{comment.content}</Markdown>
-                //                         </li>
-                //                     ))}
-                //                     </ul>
-
-                //             <div className="button-container">
-                //                 {/* <Button size="sm" onClick={handleUpdateIssue} color="primary" isLoading = {isLoading}  isDisabled= {isLoading || isInvalid}>
-                //                     {isLoading ? 'Updating...' : 'Update Issue'}
-                //                 </Button> */}
-
-                //                 <Button size="sm" onClick={handleClose}>Close</Button>
-                //             </div>
-                //         </div>
-                //     </div>
-                // )
-
-
             }
         </div>
     );

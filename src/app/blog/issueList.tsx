@@ -8,9 +8,10 @@ const octokit = new Octokit({
   
   export async function fetchIssues(page: number, perPage: number = 10) {
     try {
+        console.log(process.env.GITHUB_OWNER);
       const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
-        owner: process.env.GITHUB_OWNER || '',
-        repo: process.env.GITHUB_REPO || '',
+        owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || '',
+        repo: process.env.NEXT_PUBLIC_GITHUB_REPO || '',
         page: page,
         per_page: perPage,
         headers: {

@@ -4,8 +4,6 @@ import {Textarea} from "@nextui-org/react";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link} from "@nextui-org/react";
 
 
-
-
 interface Comments {
     user: string;
     content: string;
@@ -66,8 +64,8 @@ const UpdateBlog = ({ issue, updateOpen, onClose }: UpdateButtonProps) => {
         try {
             setIsLoading(true);
             await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
-                owner: process.env.GITHUB_OWNER || '',
-                repo: process.env.GITHUB_REPO || '',
+                owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || '',
+                repo: process.env.NEXT_PUBLIC_GITHUB_REPO || '',
                 issue_number: issue.issue_number,
                 title: title,
                 body: body,

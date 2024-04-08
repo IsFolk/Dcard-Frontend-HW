@@ -36,8 +36,8 @@ const CreateButton: React.FC = () => {
         try {
             setIsLoading(true);
             await octokit.request('POST /repos/{owner}/{repo}/issues', {
-                owner: process.env.GITHUB_OWNER || '',
-                repo: process.env.GITHUB_REPO || '',
+                owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || '',
+                repo: process.env.NEXT_PUBLIC_GITHUB_REPO || '',
                 title: title,
                 body: body,
                 headers: {
