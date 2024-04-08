@@ -8,9 +8,9 @@ const octokit = new Octokit({
   
   export async function fetchIssues(page: number, perPage: number = 10) {
     try {
-      const response = await octokit.request('GET https://api.github.com/repos/IsFolk/Dcard-Frontend-HW/issues', {
-        owner: 'IsFolk',
-        repo: 'Dcard-Frontend-HW',
+      const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+        owner: process.env.GITHUB_OWNER || '',
+        repo: process.env.GITHUB_REPO || '',
         page: page,
         per_page: perPage,
         headers: {
@@ -18,7 +18,6 @@ const octokit = new Octokit({
           'Cache-Control': 'no-cache',
         },
       });
-      
 
         const data = response.data;
 

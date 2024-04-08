@@ -48,7 +48,7 @@ export function MyNavBar() {
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 {currentUser ?
-                    <CreateButton owner="IsFolk" repo="Dcard-Frontend-HW" />
+                    <CreateButton />
                     : null}
             </NavbarContent>
 

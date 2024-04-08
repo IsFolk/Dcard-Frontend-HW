@@ -43,8 +43,8 @@ const IssuePopup = ({ issue, isIssueClicked, onClose }: UpdateButtonProps) => {
         setSelectedIssue(issue);
         try {
             const response = await octokit.request(`GET /repos/{owner}/{repo}/issues/{issue_number}/comments`, {
-                owner: 'IsFolk',
-                repo: 'Dcard-Frontend-HW',
+                owner: process.env.GITHUB_OWNER || '',
+                repo: process.env.GITHUB_REPO || '',
                 issue_number: issue.issue_number,
                 headers: {
                     'X-GitHub-Api-Version': '2022-11-28'

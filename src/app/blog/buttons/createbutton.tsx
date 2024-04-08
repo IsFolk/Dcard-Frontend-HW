@@ -8,12 +8,8 @@ const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN
 });
 
-interface CreateButtonProps {
-    owner: string;
-    repo: string;
-}
 
-const CreateButton: React.FC<CreateButtonProps> = ({ owner, repo }) => {
+const CreateButton: React.FC = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [title, setTitle] = useState('');
@@ -40,8 +36,8 @@ const CreateButton: React.FC<CreateButtonProps> = ({ owner, repo }) => {
         try {
             setIsLoading(true);
             await octokit.request('POST /repos/{owner}/{repo}/issues', {
-                owner: owner,
-                repo: repo,
+                owner: process.env.GITHUB_OWNER || '',
+                repo: process.env.GITHUB_REPO || '',
                 title: title,
                 body: body,
                 headers: {

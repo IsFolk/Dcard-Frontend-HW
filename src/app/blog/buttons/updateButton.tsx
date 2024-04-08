@@ -66,8 +66,8 @@ const UpdateBlog = ({ issue, updateOpen, onClose }: UpdateButtonProps) => {
         try {
             setIsLoading(true);
             await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
-                owner: "IsFolk",
-                repo: "Dcard-Frontend-HW",
+                owner: process.env.GITHUB_OWNER || '',
+                repo: process.env.GITHUB_REPO || '',
                 issue_number: issue.issue_number,
                 title: title,
                 body: body,
