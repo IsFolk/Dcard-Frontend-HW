@@ -52,11 +52,13 @@ NEXT_PUBLIC_GITHUB_REPO=YOUR_GITHUB_REPO
 - `src/blog/blog-components`: Reusable blog components (navbar)\
     - navbar.tsx : Navbar on the top side, including sign-in button & sign-out button
 - `src/blog/buttons`: Reusable blog components (they are called buttons but most of them are function-based)
-    For Repo Owner:
+
+    **For Repo Owner:**
     - closeButton.tsx: Setting the issue set to close (after setting we should not see the issue again)
     - createbutton.tsx: Creating new issue, you can type title and body, there are title and length controls for it
     - updateButton.tsx: Updating the issue, you can type title and body, there are title and length controls for it
-    For Public User & Repo Owner:
+    
+    **For Public User & Repo Owner:**
     - viewButton.tsx: to view the issue
 
 ### Configuration
