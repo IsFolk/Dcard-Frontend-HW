@@ -8,8 +8,8 @@ You can find my online demo here:
 https://dcard-frontend-hw.vercel.app/
 
 **Demo video**
-https://youtu.be/etgUt-WCBwg
 
+https://youtu.be/etgUt-WCBwg
 
 [![Dcard Blog](https://i.imgur.com/A1JbdID.png)](https://youtu.be/etgUt-WCBwg)
 
