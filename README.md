@@ -12,7 +12,7 @@ https://youtu.be/etgUt-WCBwg
 
 
 The website demo starts from 5:47
-[![Dcard Blog](https://hackmd.io/_uploads/SkxG3Z-xA.png)](https://youtu.be/etgUt-WCBwg)
+[![Dcard Blog](https://imgur.com/a/KrLFNyF)](https://youtu.be/etgUt-WCBwg)
 
 
 
