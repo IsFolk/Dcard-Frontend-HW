@@ -10,8 +10,8 @@ const octokit = new Octokit({
     try {
         console.log(process.env.GITHUB_OWNER);
       const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
-        owner: process.env.GITHUB_OWNER || '',
-        repo: process.env.GITHUB_REPO || '',
+        owner: 'IsFolk',
+        repo: 'Dcard-Frontend-HW',
         page: page,
         per_page: perPage,
         headers: {
