@@ -7,6 +7,15 @@ You can find my online demo here:
 https://dcard-frontend-hw.vercel.app/
 
 
+## Before started
+
+Make sure to create Github OAuth App and set the URL and callback URL
+
+- Homepage URL: http://localhost:3000/
+- Authorization callback URL: http://localhost:3000/api/auth/callback/github
+
+You will get GITHUB_SECRET and GITHUB_ID
+
 ## Getting Started
 
 1. Clone the repository
