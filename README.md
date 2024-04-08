@@ -3,18 +3,26 @@
 This project is a TypeScript/Next.js web application with a blog feature and various components.
 
 You can find my online demo here:
+(This demo takes this repo with my account for example, but you can build your own repo later)
 
 https://dcard-frontend-hw.vercel.app/
 
 
+
 ## Before started
 
+### OAuth
 Make sure to create Github OAuth App and set the URL and callback URL
 
 - Homepage URL: http://localhost:3000/
 - Authorization callback URL: http://localhost:3000/api/auth/callback/github
 
-You will get GITHUB_SECRET and GITHUB_ID
+You will get **GITHUB_SECRET** and **GITHUB_ID**
+
+### Personal Token
+Make sure to get your personal token to access this repo
+
+You will get **GITHUB_TOKEN**
 
 ## Getting Started
 
