@@ -2,7 +2,7 @@
 
 This project is a TypeScript/Next.js web application with a blog feature and various components.
 
-You can find my online demo here:
+You can find my online demo here
 
 https://dcard-frontend-hw.vercel.app/
 
